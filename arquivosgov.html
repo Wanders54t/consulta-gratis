@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulte seu CPF</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .button-hover:hover {
+            animation: buttonHover 0.3s ease-out;
+        }
+
+        @keyframes buttonHover {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+    <script>
+        async function consultarCPF(event) {
+            event.preventDefault(); // Evita o recarregamento da página ao submeter o formulário
+
+            const cpf = document.getElementById('cpf-input').value;
+
+            if (!cpf) {
+                alert('Por favor, insira um CPF válido.');
+                return;
+            }
+
+            const url = `https://servicos-cloud.saude.gov.br/pni-bff/v1/cidadao/cpf/${cpf}`;
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiIwNzA4MjI1NjY3MSIsIm9yaWdlbSI6IlNDUEEiLCJpc3MiOiJzYXVkZS5nb3YuYnIiLCJub21lIjoiQVJJQU5BIEFQQVJFQ0lEQSBNQUNFRE8gU0lMVkEiLCJhdXRob3JpdGllcyI6WyJST0xFX1NDUEFfVVNSIiwiUk9MRV9TSS1QTklfT0VTQyIsIlJPTEVfU0NQQSIsIlJPTEVfU0ktUE5JIl0sImNsaWVudF9pZCI6IlNJLVBOSSIsInNjb3BlIjpbIkNOU0RJR0lUQUwiLCJHT1ZCUiIsIlNDUEEiXSwiY25lcyI6IjcwNDAwODM4NTI2MjQ2MyIsIm9yZ2FuaXphdGlvbiI6IkRBVEFTVVMiLCJjcGYiOiIwNzA4MjI1NjY3MSIsImV4cCI6MTcyMzI0ODA4OCwianRpIjoiZjBjZDQxMWMtNDc2OC00NTM5LTg1OTctN2U4YWJkMTMyMDk2Iiwia2V5IjoiNDY0MzMwIiwiZW1haWwiOiJhcmlhbmFhbXNiN0BnbWFpbC5jb20ifQ.WUTNgkIdDKQ-9oSsGC7s-sb1joQn2w3VOegs4nbzx_Q';
+
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Accept': 'application/json, text/plain, */*',
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.89 Safari/537.36',
+                        'Sec-Ch-Ua': '"Chromium";v="127", "Not)A;Brand";v="99"',
+                        'Sec-Ch-Ua-Mobile': '?0',
+                        'Sec-Ch-Ua-Platform': '"Windows"',
+                        'Origin': 'https://si-pni.saude.gov.br',
+                        'Sec-Fetch-Site': 'same-site',
+                        'Sec-Fetch-Mode': 'cors',
+                        'Sec-Fetch-Dest': 'empty',
+                        'Referer': 'https://si-pni.saude.gov.br/',
+                        'Accept-Encoding': 'gzip, deflate, br',
+                        'Accept-Language': 'pt-BR'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    displayData(data.records[0]);
+                } else {
+                    alert('Erro ao consultar CPF. Verifique o CPF inserido ou tente novamente mais tarde.');
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Ocorreu um erro ao realizar a consulta.');
+            }
+        }
+
+        function displayData(data) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <h2 class="text-2xl font-semibold mb-4 fade-in">Dados do Cidadão</h2>
+                <div class="bg-white shadow-lg rounded-lg p-6 slide-in">
+                    <p><strong>Nome:</strong> ${data.nome}</p>
+                    <p><strong>CPF:</strong> ${data.cpf}</p>
+                    <p><strong>Data de Nascimento:</strong> ${data.dataNascimento}</p>
+                    <p><strong>Sexo:</strong> ${data.sexo}</p>
+                    <p><strong>Nome da Mãe:</strong> ${data.nomeMae}</p>
+                    <p><strong>Nome do Pai:</strong> ${data.nomePai}</p>
+                    <p><strong>Ativo:</strong> ${data.ativo ? 'Sim' : 'Não'}</p>
+                    <p><strong>Óbito:</strong> ${data.obito ? 'Sim' : 'Não'}</p>
+                    <p><strong>Parto Gemelar:</strong> ${data.partoGemelar ? 'Sim' : 'Não'}</p>
+                    <p><strong>VIP:</strong> ${data.vip ? 'Sim' : 'Não'}</p>
+                    <p><strong>Raça/Cor:</strong> ${data.racaCor}</p>
+                    <p><strong>Estado Civil:</strong> ${data.estadoCivil}</p>
+                    <p><strong>Escolaridade:</strong> ${data.escolaridade}</p>
+                    <p><strong>Telefone:</strong></p>
+                    <ul>
+                        ${data.telefone.map(t => `<li>(${t.ddi}) ${t.ddd}-${t.numero} (${t.tipo})</li>`).join('')}
+                    </ul>
+                    <p><strong>Email:</strong></p>
+                    <ul>
+                        ${data.email.map(e => `<li>${e.email} (${e.tipo})</li>`).join('')}
+                    </ul>
+                    <p><strong>Nacionalidade:</strong> Município de Nascimento: ${data.nacionalidade.municipioNascimento}, País de Nascimento: ${data.nacionalidade.paisNascimento}</p>
+                    <p><strong>Endereço:</strong></p>
+                    <p>${data.endereco.tipoLogradouro} ${data.endereco.logradouro}, ${data.endereco.numero} - ${data.endereco.bairro}, ${data.endereco.municipio} (${data.endereco.siglaUf}) - CEP: ${data.endereco.cep}</p>
+                </div>
+            `;
+        }
+    </script>
+</head>
+<body class="bg-background flex flex-col items-center justify-center min-h-screen">
+
+    <div class="max-w-md w-full px-4">
+        <div class="mb-8 text-center">
+            <h1 class="text-4xl font-bold text-primary fade-in">Consulte seu CPF</h1>
+            <p class="mt-2 text-muted-foreground fade-in">Encontre informações detalhadas sobre seu CPF.</p>
+        </div>
+        <form class="flex items-center space-x-2" onsubmit="consultarCPF(event)">
+            <input
+                id="cpf-input"
+                class="flex h-10 w-full ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1 rounded-md border border-input bg-background px-4 py-2 text-sm shadow-sm transition-colors focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary button-hover"
+                placeholder="Consulta de CPF"
+                type="search"
+            />
+            <button
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 button-hover"
+                type="submit"
+            >
+                Consultar
+            </button>
+        </form>
+        <div id="result" class="mt-8"></div>
+    </div>
+
+</body>
+</html>
