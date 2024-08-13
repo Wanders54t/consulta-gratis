@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-black text-white min-h-screen p-4">
+        <header class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold ml-4">Cinema</h1>
+            </div>
+        </header>
+        <div id="movie-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- Filmes vão ser carregados aqui -->
+        </div>
+        <div class="flex justify-center mt-4">
+            <button id="next-page-btn" class="bg-blue-500 text-white px-4 py-2 rounded">Próxima Página</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 2; // Começa da página 2
+
+        async function loadMovies(page) {
+            const url = `https://api.baserow.io/api/database/rows/table/228337/?user_field_names=true&order_by=-Data&size=100&page=${page}&filter__field_2335839__contains=`;
+            const token = '642C9lnOkgh3JF5XELTe687eQtSphPXh';
+
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Token ${token}`,
+                    'Accept-Encoding': 'gzip',
+                }
+            });
+
+            const data = await response.json();
+
+            const movieGrid = document.getElementById('movie-grid');
+
+            data.results.forEach(movie => {
+                const movieElement = document.createElement('div');
+                movieElement.className = 'text-center';
+                movieElement.innerHTML = `
+                    <a href="${movie.Link}" download>
+                        <img src="${movie.Capa}" alt="${movie.Nome}" class="w-full h-auto" style="aspect-ratio: 100 / 150; object-fit: cover;" />
+                    </a>
+                    <p class="mt-2 text-sm truncate">${movie.Nome}</p>
+                `;
+                movieGrid.appendChild(movieElement);
+            });
+        }
+
+        document.getElementById('next-page-btn').addEventListener('click', () => {
+            loadMovies(currentPage);
+            currentPage++;
+        });
+
+        // Carregar a primeira página ao iniciar
+        loadMovies(2);
+    </script>
+</body>
+</html>
