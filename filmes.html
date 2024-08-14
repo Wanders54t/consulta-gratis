@@ -22,15 +22,17 @@
         <div id="movie-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <!-- Filmes vão ser carregados aqui -->
         </div>
-        <div class="flex justify-center mt-4">
-            <button id="next-page-btn" class="bg-blue-500 text-white px-4 py-2 rounded">exibir mais filmes</button>
-        </div>
     </div>
 
     <script>
         let currentPage = 2; // Começa da página 2
+        let isLoading = false; // Controla se o carregamento está em progresso
+        let hasMoreMovies = true; // Controla se há mais filmes para carregar
 
         async function loadMovies(page) {
+            if (isLoading || !hasMoreMovies) return; // Evita múltiplos carregamentos simultâneos e carregamento sem necessidade
+            isLoading = true;
+
             const url = `https://api.baserow.io/api/database/rows/table/228337/?user_field_names=true&order_by=-Data&size=100&page=${page}&filter__field_2335839__contains=`;
             const token = '642C9lnOkgh3JF5XELTe687eQtSphPXh';
 
@@ -45,7 +47,13 @@
             const data = await response.json();
 
             const movieGrid = document.getElementById('movie-grid');
-            movieGrid.innerHTML = ''; // Limpar a grade antes de adicionar novos filmes
+
+            // Se não houver mais filmes, interrompe o carregamento
+            if (data.results.length === 0) {
+                hasMoreMovies = false;
+                isLoading = false;
+                return;
+            }
 
             data.results.forEach(movie => {
                 const movieElement = document.createElement('div');
@@ -58,12 +66,20 @@
                 `;
                 movieGrid.appendChild(movieElement);
             });
+
+            isLoading = false;
         }
 
-        document.getElementById('next-page-btn').addEventListener('click', () => {
-            loadMovies(currentPage);
-            currentPage++;
-        });
+        // Função para verificar se o usuário chegou ao final da página
+        function handleScroll() {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+                loadMovies(currentPage);
+                currentPage++;
+            }
+        }
+
+        // Adiciona o evento de scroll para carregar mais filmes
+        window.addEventListener('scroll', handleScroll);
 
         // Carregar a primeira página ao iniciar
         loadMovies(2);
