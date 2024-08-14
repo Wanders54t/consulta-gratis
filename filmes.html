@@ -45,6 +45,7 @@
             const data = await response.json();
 
             const movieGrid = document.getElementById('movie-grid');
+            movieGrid.innerHTML = ''; // Limpar a grade antes de adicionar novos filmes
 
             data.results.forEach(movie => {
                 const movieElement = document.createElement('div');
