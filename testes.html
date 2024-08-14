@@ -3,50 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alunos</title>
+    <title>Lista de Alunos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .aluno {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .aluno img {
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .aluno-info {
+            flex-grow: 1;
+        }
+    </style>
 </head>
 <body>
-    <div id="alunosContainer">Carregando alunos...</div>
+    <h1>Lista de Alunos</h1>
 
-    <script>
-        let token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxJLVF3ZVh1TlJBcHVHanJHZ3hNOVlGM01NWHkzTHhEYWpkaVA4WllnSTQifQ...';
+    <div class="aluno">
+        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062385?code=72d80fa070de2111f0b82dc943fea85dc0e11d564bc20391be15efab5cd40189&width=300" alt="Foto de ALESSANDRO SILVA FERREIRA" width="100" height="100">
+        <div class="aluno-info">
+            <p><strong>Nome:</strong> ALESSANDRO SILVA FERREIRA</p>
+            <p><strong>Email:</strong> alessandro.ferreira11@aluno.ce.gov.br</p>
+            <p><strong>Data de Nascimento:</strong> 2006-01-03</p>
+        </div>
+    </div>
 
-        function fetchAlunos() {
-            fetch('https://apialuno.seduc.ce.gov.br/api/v3/alunos/2821662/classmates', {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Accept': 'application/json, text/plain, */*',
-                }
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro na resposta da API: ' + response.status);
-                }
-                return response.json();
-            })
-            .then(data => {
-                const alunosContainer = document.getElementById('alunosContainer');
-                alunosContainer.innerHTML = ''; // Limpa o conteúdo antes de adicionar os alunos
+    <div class="aluno">
+        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062489?code=88dea76167549990f228e3870d1842f7532ab0a05f95d1dbd3fea9a2e1ee86f2&width=300" alt="Foto de ANA JAISA ALVES DO NASCIMENTO" width="100" height="100">
+        <div class="aluno-info">
+            <p><strong>Nome:</strong> ANA JAISA ALVES DO NASCIMENTO</p>
+            <p><strong>Email:</strong> ana.nascimento1042@aluno.ce.gov.br</p>
+            <p><strong>Data de Nascimento:</strong> 2007-07-15</p>
+        </div>
+    </div>
 
-                data.forEach(aluno => {
-                    const alunoDiv = document.createElement('div');
-                    alunoDiv.innerHTML = `
-                        <img src="${aluno.photoUrl}" alt="Foto de ${aluno.nome}">
-                        <p>${aluno.nome}</p>
-                    `;
-                    alunosContainer.appendChild(alunoDiv);
-                });
-            })
-            .catch(error => {
-                const alunosContainer = document.getElementById('alunosContainer');
-                alunosContainer.innerHTML = `<p>Erro ao carregar os alunos: ${error.message}</p>`;
-                console.error('Erro ao buscar os alunos:', error);
-            });
-        }
+    <div class="aluno">
+        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062543?code=2f90c5442ff9d7d76f6a10c7cb17cf0de57c02e5c937c7b38ac16b406f260feb&width=300" alt="Foto de FRANCISCO DAVI SOUSA DOS SANTOS" width="100" height="100">
+        <div class="aluno-info">
+            <p><strong>Nome:</strong> FRANCISCO DAVI SOUSA DOS SANTOS</p>
+            <p><strong>Email:</strong> francisco.santos626@aluno.ce.gov.br</p>
+            <p><strong>Data de Nascimento:</strong> 2007-10-27</p>
+        </div>
+    </div>
 
-        // Chama a função para buscar os alunos ao carregar a página
-        fetchAlunos();
-    </script>
+    <div class="aluno">
+        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062664?code=8b9cd9b0c275a798420e64a35e62a34be7b9d06f7b87fe043528320ed373fb29&width=300" alt="Foto de IALLY BEATRIZ ALVES SILVA" width="100" height="100">
+        <div class="aluno-info">
+            <p><strong>Nome:</strong> IALLY BEATRIZ ALVES SILVA</p>
+            <p><strong>Email:</strong> ially.silva1210@aluno.ce.gov.br</p>
+            <p><strong>Data de Nascimento:</strong> 2007-06-04</p>
+        </div>
+    </div>
+
+    <div class="aluno">
+        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062791?code=03c32a7e66f03b1c151d1d6660c9ac4d3b4da7c7e0c73e8e9f5bff1d6e7b95bc&width=300" alt="Foto de ISMAEL MAIA SARAIVA" width="100" height="100">
+        <div class="aluno-info">
+            <p><strong>Nome:</strong> ISMAEL MAIA SARAIVA</p>
+            <p><strong>Email:</strong> ismael.saraiva688@aluno.ce.gov.br</p>
+            <p><strong>Data de Nascimento:</strong> 2007-10-01</p>
+        </div>
+    </div>
+
+    <div class="aluno">
+        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062844?code=68860c1eeb58f7f4b6ec5b25e9c7c28c5b972d7fa22f2fd586073fa2c0663158&width=300" alt="Foto de JEOVANA NUNES PEREIRA" width="100" height="100">
+        <div class="aluno-info">
+            <p><strong>Nome:</strong> JEOVANA NUNES PEREIRA</p>
+            <p><strong>Email:</strong> jeovana.pereira702@aluno.ce.gov.br</p>
+            <p><strong>Data de Nascimento:</strong> 2007-09-11</p>
+        </div>
+    </div>
+
+    <div class="aluno">
+        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5063094?code=7c272b9684fa13d4d7b11e042dd7fe453898f3287ab2490b9285b2aeb646cafe&width=300" alt="Foto de RITIELY DA SILVA MARTINS" width="100" height="100">
+        <div class="aluno-info">
+            <p><strong>Nome:</strong> RITIELY DA SILVA MARTINS</p>
+            <p><strong>Email:</strong> ritiely.martins202@aluno.ce.gov.br</p>
+            <p><strong>Data de Nascimento:</strong> 2006-06-22</p>
+        </div>
+    </div>
+
+    <div class="aluno">
+        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5063172?code=058cc80f19c99fc48e544e25707b8d47d7889d81b6477e49c7fe50a94c2ff00c&width=300" alt="Foto de SAULO DA SILVA MENEZES" width="100" height="100">
+        <div class="aluno-info">
+            <p><strong>Nome:</strong> SAULO DA SILVA MENEZES</p>
+            <p><strong>Email:</strong> saulo.menezes453@aluno.ce.gov.br</p>
+            <p><strong>Data de Nascimento:</strong> 2007-03-28</p>
+        </div>
+    </div>
+
+    <div class="aluno">
+        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5063375?code=4c78de83b75d5ab94696184b50205e59cd8f18a9e676ace6207740e51035a6a7&width=300" alt="Foto de SILMARA LIMA DE OLIVEIRA" width="100" height="100">
+        <div class="aluno-info">
+            <p><strong>Nome:</strong> SILMARA LIMA DE OLIVEIRA</p>
+            <p><strong>Email:</strong> silmara.oliveira858@aluno.ce.gov.br</p>
+            <p><strong>Data de Nascimento:</strong> 2006-10-09</p>
+        </div>
+    </div>
+
+    <div class="aluno">
+        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5063380?code=6a6a6f9899d60f591d36940c0ea3545d87c4d3f11d1b09a7870fefdd3d0f16c2&width=300" alt="Foto de TAYLOR MATEUS CARVALHO" width="100" height="100">
+        <div class="aluno-info">
+            <p><strong>Nome:</strong> TAYLOR MATEUS CARVALHO</p>
+            <p><strong>Email:</strong> taylor.carvalho964@aluno.ce.gov.br</p>
+            <p><strong>Data de Nascimento:</strong> 2007-07-03</p>
+        </div>
+    </div>
+
+    <div class="aluno">
+        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5063395?code=b4f631e6d5d01e79b00d117405d079b6d41a11d9469ec1c107f5e8314690bcb1&width=300" alt="Foto de THIAGO JEREMIAS PINHEIRO" width="100" height="100">
+        <div class="aluno-info">
+            <p><strong>Nome:</strong> THIAGO JEREMIAS PINHEIRO</p>
+            <p><strong>Email:</strong> thiago.pinheiro624@aluno.ce.gov.br</p>
+            <p><strong>Data de Nascimento:</strong> 2007-04-22</p>
+        </div>
+    </div>
+
+    <div class="aluno">
+        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5063424?code=bd8967b5bba99b775d17b14b9ccdf6a410bbba0e154fc949b66f9a4e6c40c391&width=300" alt="Foto de VITOR MATEUS SILVA TEIXEIRA" width="100" height="100">
+        <div class="aluno-info">
+            <p><strong>Nome:</strong> VITOR MATEUS SILVA TEIXEIRA</p>
+            <p><strong>Email:</strong> vitor.teixeira302@aluno.ce.gov.br</p>
+            <p><strong>Data de Nascimento:</strong> 2007-08-28</p>
+        </div>
+    </div>
+
 </body>
 </html>
