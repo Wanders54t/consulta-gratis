@@ -6,7 +6,7 @@
     <title>Alunos</title>
 </head>
 <body>
-    <div id="alunosContainer"></div>
+    <div id="alunosContainer">Carregando alunos...</div>
 
     <script>
         let token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxJLVF3ZVh1TlJBcHVHanJHZ3hNOVlGM01NWHkzTHhEYWpkaVA4WllnSTQifQ...';
@@ -17,20 +17,18 @@
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Accept': 'application/json, text/plain, */*',
-                    'Sec-Ch-Ua': '"Chromium";v="127", "Not)A;Brand";v="99"',
-                    'Sec-Ch-Ua-Mobile': '?0',
-                    'Sec-Ch-Ua-Platform': '"Windows"',
                 }
             })
             .then(response => {
-                if (response.status === 401) {
-                    return refreshToken().then(fetchAlunos);
+                if (!response.ok) {
+                    throw new Error('Erro na resposta da API: ' + response.status);
                 }
                 return response.json();
             })
             .then(data => {
                 const alunosContainer = document.getElementById('alunosContainer');
-                alunosContainer.innerHTML = '';
+                alunosContainer.innerHTML = ''; // Limpa o conteúdo antes de adicionar os alunos
+
                 data.forEach(aluno => {
                     const alunoDiv = document.createElement('div');
                     alunoDiv.innerHTML = `
@@ -41,29 +39,9 @@
                 });
             })
             .catch(error => {
+                const alunosContainer = document.getElementById('alunosContainer');
+                alunosContainer.innerHTML = `<p>Erro ao carregar os alunos: ${error.message}</p>`;
                 console.error('Erro ao buscar os alunos:', error);
-            });
-        }
-
-        function refreshToken() {
-            return fetch('https://oauthaluno.seduc.ce.gov.br/token', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Accept': 'application/json, text/plain, */*',
-                    'Sec-Ch-Ua': '"Chromium";v="127", "Not)A;Brand";v="99"',
-                    'Sec-Ch-Ua-Mobile': '?0',
-                    'Sec-Ch-Ua-Platform': '"Windows"',
-                },
-                body: 'client_id=8TPCuxyBhmftDPfFVNgO02HYiUC2rupe&grant_type=refresh_token&refresh_token=UzHNtuephIvO8h-WG5WlTvwoDwhGPwQPjcRDqlZLIAo'
-            })
-            .then(response => response.json())
-            .then(data => {
-                token = data.access_token;  // Atualiza o token com o novo valor
-                console.log('Token atualizado:', token);
-            })
-            .catch(error => {
-                console.error('Erro ao atualizar o token:', error);
             });
         }
 
