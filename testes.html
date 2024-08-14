@@ -4,80 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alunos</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .aluno-card {
-            background-color: #444;
-            border-radius: 8px;
-            overflow: hidden;
-            text-align: center;
-            padding: 10px;
-        }
-        .aluno-card img {
-            width: 100%;
-            height: auto;
-            border-bottom: 2px solid #555;
-        }
-        .aluno-card p {
-            margin: 10px 0 0;
-        }
-    </style>
 </head>
 <body>
-
-    <h1>Lista de Alunos</h1>
-    <div class="grid-container" id="alunosContainer">
-        <!-- Os alunos serão inseridos aqui dinamicamente -->
-    </div>
+    <div id="alunosContainer"></div>
 
     <script>
-        // Exemplo de solicitação GET com o token fornecido
-        fetch('https://apialuno.seduc.ce.gov.br/api/v3/alunos/2821662/classmates', {
-            method: 'GET',
-            headers: {
-                'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxJLVF3ZVh1TlJBcHVHanJHZ3hNOVlGM01NWHkzTHhEYWpkaVA4WllnSTQifQ.eyJqdGkiOiJCdDFLYmVWdTdQYWVCbWJmX05wSzkiLCJzdWIiOiJBTFVOTzI4MjE2NjIiLCJpYXQiOjE3MjM2NTAzODcsImV4cCI6MTcyMzY1MTI4Nywic2NvcGUiOiJvcGVuaWQgbmFtZSBzb2NpYWxOYW1lIHBpY3R1cmUgYXBpOnJlYWQ6YWxsIGFwaTp3cml0ZTphbGwiLCJpc3MiOiJodHRwczovL29hdXRoYWx1bm8uc2VkdWMuY2UuZ292LmJyIiwiYXVkIjoiOFRQQ3V4eUJobWZ0RFBmRlZOZ08wMkhZaVVDMnJ1cGUifQ.T-C7HACjBoauHsYCXDgvnOs-FjlWWnaPvGtiR111twp0DFQ8y3WePCIKmjf6mtqFiXG64c1IWKedgXnNDO47iQnk7GXavoRg5AXDZhZP324S1oZ9Q2q50MNW-WBXDMJjW8-JdXL8gPwIVfHMTF_hq8OYtq7ZAeZY41eEFaefsxXSrhp1Z2kYUKfK2TPyntDgaaIvrbAwr-q2B448K4Rjf2vt8l4THEA2vB-DPOrch4sd7iTJQQ0pSqNG-TbM7xUzZldTQk9GFdtMEkaWNjpPaFBcT17j8lpxZrevq_YTffKfvqA763y_nmeseBzpBgQu59LrsWSS34BjYlFdHcZCzQ',
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            const alunosContainer = document.getElementById('alunosContainer');
+        let token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkxJLVF3ZVh1TlJBcHVHanJHZ3hNOVlGM01NWHkzTHhEYWpkaVA4WllnSTQifQ...';
 
-            // Itera sobre cada aluno na resposta
-            data.forEach(aluno => {
-                // Cria um card para cada aluno
-                const alunoCard = document.createElement('div');
-                alunoCard.classList.add('aluno-card');
-
-                // Adiciona a imagem do aluno
-                const alunoImg = document.createElement('img');
-                alunoImg.src = aluno.photoUrl;
-                alunoImg.alt = aluno.nome;
-                alunoCard.appendChild(alunoImg);
-
-                // Adiciona o nome do aluno
-                const alunoNome = document.createElement('p');
-                alunoNome.textContent = aluno.nome;
-                alunoCard.appendChild(alunoNome);
-
-                // Adiciona o card ao container
-                alunosContainer.appendChild(alunoCard);
+        function fetchAlunos() {
+            fetch('https://apialuno.seduc.ce.gov.br/api/v3/alunos/2821662/classmates', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/json, text/plain, */*',
+                    'Sec-Ch-Ua': '"Chromium";v="127", "Not)A;Brand";v="99"',
+                    'Sec-Ch-Ua-Mobile': '?0',
+                    'Sec-Ch-Ua-Platform': '"Windows"',
+                }
+            })
+            .then(response => {
+                if (response.status === 401) {
+                    return refreshToken().then(fetchAlunos);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const alunosContainer = document.getElementById('alunosContainer');
+                alunosContainer.innerHTML = '';
+                data.forEach(aluno => {
+                    const alunoDiv = document.createElement('div');
+                    alunoDiv.innerHTML = `
+                        <img src="${aluno.photoUrl}" alt="Foto de ${aluno.nome}">
+                        <p>${aluno.nome}</p>
+                    `;
+                    alunosContainer.appendChild(alunoDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Erro ao buscar os alunos:', error);
             });
-        })
-        .catch(error => {
-            console.error('Erro ao buscar alunos:', error);
-        });
-    </script>
+        }
 
+        function refreshToken() {
+            return fetch('https://oauthaluno.seduc.ce.gov.br/token', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Accept': 'application/json, text/plain, */*',
+                    'Sec-Ch-Ua': '"Chromium";v="127", "Not)A;Brand";v="99"',
+                    'Sec-Ch-Ua-Mobile': '?0',
+                    'Sec-Ch-Ua-Platform': '"Windows"',
+                },
+                body: 'client_id=8TPCuxyBhmftDPfFVNgO02HYiUC2rupe&grant_type=refresh_token&refresh_token=UzHNtuephIvO8h-WG5WlTvwoDwhGPwQPjcRDqlZLIAo'
+            })
+            .then(response => response.json())
+            .then(data => {
+                token = data.access_token;
+            })
+            .catch(error => {
+                console.error('Erro ao atualizar o token:', error);
+            });
+        }
+
+        // Chama a função para buscar os alunos ao carregar a página
+        fetchAlunos();
+    </script>
 </body>
 </html>
