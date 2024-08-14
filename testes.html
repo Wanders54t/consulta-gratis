@@ -59,7 +59,8 @@
             })
             .then(response => response.json())
             .then(data => {
-                token = data.access_token;
+                token = data.access_token;  // Atualiza o token com o novo valor
+                console.log('Token atualizado:', token);
             })
             .catch(error => {
                 console.error('Erro ao atualizar o token:', error);
