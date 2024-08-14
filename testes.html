@@ -3,142 +3,439 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Alunos</title>
+    <title>Alunos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
             padding: 20px;
-            background-color: #f5f5f5;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
         }
         .aluno {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px 0;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
             display: flex;
             align-items: center;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .aluno img {
             border-radius: 50%;
             margin-right: 20px;
         }
         .aluno-info {
-            flex-grow: 1;
+            max-width: 600px;
+        }
+        .aluno-info h2 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+        .aluno-info p {
+            margin: 5px 0;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <h1>Lista de Alunos</h1>
-
-    <div class="aluno">
-        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062385?code=72d80fa070de2111f0b82dc943fea85dc0e11d564bc20391be15efab5cd40189&width=300" alt="Foto de ALESSANDRO SILVA FERREIRA" width="100" height="100">
-        <div class="aluno-info">
-            <p><strong>Nome:</strong> ALESSANDRO SILVA FERREIRA</p>
-            <p><strong>Email:</strong> alessandro.ferreira11@aluno.ce.gov.br</p>
-            <p><strong>Data de Nascimento:</strong> 2006-01-03</p>
+    <div class="container">
+        <!-- Início dos dados dos alunos -->
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062385?code=72d80fa070de2111f0b82dc943fea85dc0e11d564bc20391be15efab5cd40189&width=300" alt="Foto de ALESSANDRO SILVA FERREIRA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>ALESSANDRO SILVA FERREIRA</h2>
+                <p>Email: alessandro.ferreira11@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-01-03</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062489?code=88dea76167549990f228e3870d1842f7532ab0a05f95d1dbd3fea9a2e1ee86f2&width=300" alt="Foto de ANA JAISA ALVES DO NASCIMENTO" width="100" height="100">
+            <div class="aluno-info">
+                <h2>ANA JAISA ALVES DO NASCIMENTO</h2>
+                <p>Email: ana.nascimento1042@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-07-15</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062523?code=2a06328e85c2b9823336a374c623f625e02f811c26dd1eb4d4773a5fc150b890&width=300" alt="Foto de ANA LUIZA DE SOUSA GOMES" width="100" height="100">
+            <div class="aluno-info">
+                <h2>ANA LUIZA DE SOUSA GOMES</h2>
+                <p>Email: ana.sousa1926@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-05-11</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/1777698?code=7b91cc523a2218980e974bd8c9ed352546f7e126293254a60487736d62eae760&width=300" alt="Foto de ANA REBECA RODRIGUES TAVORA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>ANA REBECA RODRIGUES TAVORA</h2>
+                <p>Email: annarebeka22@gmail.com</p>
+                <p>Nascimento: 2007-09-30</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/4658036?code=582f3aa18e9989e9c1c525723d22ba4bbe1df1e0e51616df400211553e592d07&width=300" alt="Foto de ANGELO MIGUEL PEREIRA CAMILO" width="100" height="100">
+            <div class="aluno-info">
+                <h2>ANGELO MIGUEL PEREIRA CAMILO</h2>
+                <p>Email: angelo.camilo@aluno.ce.gov.br</p>
+                <p>Nascimento: 2005-12-19</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5109810?code=780e74db5088260fa44ce4599427043e0be72b749bc0a9b8fa0915173bc0c351&width=300" alt="Foto de ANNE JAQUELINE DA SILVA ALVES" width="100" height="100">
+            <div class="aluno-info">
+                <h2>ANNE JAQUELINE DA SILVA ALVES</h2>
+                <p>Email: anne.alves6@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-01-28</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5071910?code=7fd97831ce055368378389501ccc7527cbc1a7edd8c5b5f5637b729596e3901c&width=300" alt="Foto de ARTUR BRUNO PEREIRA DA SILVA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>ARTUR BRUNO PEREIRA DA SILVA</h2>
+                <p>Email: artur.silva82@aluno.ce.gov.br</p>
+                <p>Nascimento: 2008-04-01</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5095836?code=4ca116f48bddd4d0ad8ea67726bfcd1bf43307a653ae27f60464ede8ea55187e&width=300" alt="Foto de AVILA CABRAL BARBOSA PEREIRA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>AVILA CABRAL BARBOSA PEREIRA</h2>
+                <p>Email: avila.pereira@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-05-02</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5083846?code=e3396b58d2795aea6ddbe14c861c1705a1ca80c4655c9f773b78dcc9efd44d25&width=300" alt="Foto de BARBARA CARVALHO DAS CHAGAS" width="100" height="100">
+            <div class="aluno-info">
+                <h2>BARBARA CARVALHO DAS CHAGAS</h2>
+                <p>Email: barbara.chagas3@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-08-13</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5079115?code=9340ce296fd387dfff9c9c133ee79c1f7d4cb86e5925988f6123d5b2ffb7a8ff&width=300" alt="Foto de CAIO DO NASCIMENTO LIMA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>CAIO DO NASCIMENTO LIMA</h2>
+                <p>Email: caio.lima2006@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-11-12</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/4916227?code=1c7c344d832744bf3f09d68b22dfe6cc5ecb5b0695b9e4c434747cbdfed18456&width=300" alt="Foto de CAMILA MENEZES MAIA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>CAMILA MENEZES MAIA</h2>
+                <p>Email: camila.maia94@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-11-03</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5081225?code=4eec65de19e3f2e0ea26eb816fc5cc1588baf5a68b7e0e165b8e4a70cbdb02b0&width=300" alt="Foto de CAROLINE CRISTINA MARTINS MACEDO" width="100" height="100">
+            <div class="aluno-info">
+                <h2>CAROLINE CRISTINA MARTINS MACEDO</h2>
+                <p>Email: caroline.macedo49@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-04-10</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/4951910?code=760d2bfe4f65be08b5f670d60e7ed14b8f629274b9e4d6045ccfe2620a6185db&width=300" alt="Foto de CLAYTON MELO BEZERRA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>CLAYTON MELO BEZERRA</h2>
+                <p>Email: clayton.bezera@aluno.ce.gov.br</p>
+                <p>Nascimento: 2005-10-17</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5032752?code=f5a26e17463d530a1b69189e7478251f1eacdd0cf58a7cbd622b69c008a07491&width=300" alt="Foto de DANIELA SOUSA DE OLIVEIRA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>DANIELA SOUSA DE OLIVEIRA</h2>
+                <p>Email: daniela.oliveira41@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-01-31</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062851?code=767d4572ab9c056fbd24671e7c8258e66067b8a08a5640bb01f963e291ea518&width=300" alt="Foto de DAVI MOTA PONTES" width="100" height="100">
+            <div class="aluno-info">
+                <h2>DAVI MOTA PONTES</h2>
+                <p>Email: davimota@aluno.ce.gov.br</p>
+                <p>Nascimento: 2008-04-25</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/4950181?code=092ff3f8b569ce9cf3c8599b1182e2e3c87c5c3a3145f325a7e155ecdfce2877&width=300" alt="Foto de DAVI NUNES DE SOUSA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>DAVI NUNES DE SOUSA</h2>
+                <p>Email: davinunes@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-11-19</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/4851396?code=82c64d06658dc5b7acdc99a0e6c4d0e840b8977c897f5c748a8d66fd6c978590&width=300" alt="Foto de EMANUEL VICTOR MOTA DE OLIVEIRA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>EMANUEL VICTOR MOTA DE OLIVEIRA</h2>
+                <p>Email: emanuel.victor@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-05-10</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/4991798?code=be790b788b05d9d5c1d7f11f5827dcb63ef7ae20daffca8a09a7f8ae71c4d23d&width=300" alt="Foto de EUGENIO COSTA DOS REIS" width="100" height="100">
+            <div class="aluno-info">
+                <h2>EUGENIO COSTA DOS REIS</h2>
+                <p>Email: eugenio.reis@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-10-19</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5082917?code=11b8fcad88f86be05eb8ccdd41de668f64e083af78e18d3a98c77323807d81ed&width=300" alt="Foto de FRANCISCO JOSÉ ALMEIDA REIS" width="100" height="100">
+            <div class="aluno-info">
+                <h2>FRANCISCO JOSÉ ALMEIDA REIS</h2>
+                <p>Email: francisco.reis1@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-09-19</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/4855271?code=4f29eb2872a1f14f3ad6742f1a99c7d21e6782d3ef4c1c8e0293792aeff05e83&width=300" alt="Foto de ISADORA MACEDO ALMEIDA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>ISADORA MACEDO ALMEIDA</h2>
+                <p>Email: isadora.macedo@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-07-19</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5084423?code=39f9d93d8685825822e58cb3d0be5770b39868a803d29e002d5ed02e2d4d4586&width=300" alt="Foto de JHONATAN BATISTA DE OLIVEIRA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>JHONATAN BATISTA DE OLIVEIRA</h2>
+                <p>Email: jhonatan.oliveira@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-08-08</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5093724?code=6d14b7e75a5d13a0f4e428ee7c2edc6b7359e76f1a396dd4e42987a41765ab0a&width=300" alt="Foto de JHONATAN FERREIRA DE OLIVEIRA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>JHONATAN FERREIRA DE OLIVEIRA</h2>
+                <p>Email: jhonatan.ferreira@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-07-27</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5089603?code=95f28b2d2c8c570c36b6cf733f8b019736002b6e01c63c5e743c849aa0e6f4a4&width=300" alt="Foto de JOCILEIDE JORGE DE ALMEIDA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>JOCILEIDE JORGE DE ALMEIDA</h2>
+                <p>Email: jocileide.jorge@aluno.ce.gov.br</p>
+                <p>Nascimento: 2008-04-25</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5054158?code=8a9e634c13c1580d430c7c8c4d1d0d0c0e3f008405e6ea643d292a476cc46848&width=300" alt="Foto de JOSÉ ALBERTO DE OLIVEIRA FILHO" width="100" height="100">
+            <div class="aluno-info">
+                <h2>JOSÉ ALBERTO DE OLIVEIRA FILHO</h2>
+                <p>Email: jose.oliveira@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-10-17</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5071604?code=b897b908f139c55b84f77a595ecbf0d6ecae6a7cbb6ea72a4cc64d8e989c0598&width=300" alt="Foto de JOSÉ HUGO DE OLIVEIRA MACEDO" width="100" height="100">
+            <div class="aluno-info">
+                <h2>JOSÉ HUGO DE OLIVEIRA MACEDO</h2>
+                <p>Email: jose.hugo@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-01-12</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5086943?code=13c16bcb071fd57a708b5652c0569c42a8f4a5e3c0e8b93c5227b6c1fcf51b6a&width=300" alt="Foto de JOSÉ LUCAS MELO DE ALMEIDA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>JOSÉ LUCAS MELO DE ALMEIDA</h2>
+                <p>Email: jose.lucas@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-07-08</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/4928854?code=91e8d4ef27bfb7062a1d8b0147fbb55ff8fc7d11b04e1ad32f2e6ae1aafc8e3e&width=300" alt="Foto de JULIANO RAMOS FERREIRA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>JULIANO RAMOS FERREIRA</h2>
+                <p>Email: juliano.ferreira@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-12-13</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062375?code=4308d7e55b221cbe8a6e745cf684c3a8b15e682ef2a21ec5806d5b61848db9b4&width=300" alt="Foto de KATIA RIBEIRO SILVA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>KATIA RIBEIRO SILVA</h2>
+                <p>Email: katia.silva@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-09-04</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5098252?code=927b5353f03ec4e80916a8b1e3dc379b6f0eb5c8d287b4e53dcbf7fef1c8687&width=300" alt="Foto de LEONARDO LIMA ALMEIDA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>LEONARDO LIMA ALMEIDA</h2>
+                <p>Email: leonardo.almeida@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-11-25</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5042851?code=053b8772d03d4577b0e04fffdc83f947adfd244d6f7e7b4d066ecdf7386a3509&width=300" alt="Foto de LIDIANE CRISTINA ALMEIDA ARAUJO" width="100" height="100">
+            <div class="aluno-info">
+                <h2>LIDIANE CRISTINA ALMEIDA ARAUJO</h2>
+                <p>Email: lidiane.araujo@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-10-28</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5092954?code=6e7b07b4db881086c5830f14a1c87e9d535b9d4de94b1fd12a06fcd4d9dcf1b5&width=300" alt="Foto de LUAN VICTOR SOARES DE OLIVEIRA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>LUAN VICTOR SOARES DE OLIVEIRA</h2>
+                <p>Email: luan.soares@aluno.ce.gov.br</p>
+                <p>Nascimento: 2008-04-10</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5093253?code=45817d17d885c8347a5c2fc9ec7b757dfbf3d24a0f72fcf8493b90e9b10b1f1b&width=300" alt="Foto de MATEUS LIMA DE SOUSA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>MATEUS LIMA DE SOUSA</h2>
+                <p>Email: mateus.lima@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-01-09</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5087267?code=44f38ebde4b2d911dcb7e13a16960cf11cfd6bde66d1aa3eec52796d8252361&width=300" alt="Foto de MIRELLA OLIVEIRA PINHEIRO" width="100" height="100">
+            <div class="aluno-info">
+                <h2>MIRELLA OLIVEIRA PINHEIRO</h2>
+                <p>Email: mirella.pinheiro@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-08-24</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5088346?code=b7d6c4fd4ab04ec30a1be5b91baf7f7c5f496fd8ae398e2be5f6ad02d863319f&width=300" alt="Foto de MURILO VICTOR DE OLIVEIRA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>MURILO VICTOR DE OLIVEIRA</h2>
+                <p>Email: murilo.oliveira@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-10-01</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5074730?code=80cb2bfb38a738717a56e8eeb1cdbf76dd4b30d1078b2827d4c9b95b65e89b07&width=300" alt="Foto de NATÁLIA FARIAS SANTOS" width="100" height="100">
+            <div class="aluno-info">
+                <h2>NATÁLIA FARIAS SANTOS</h2>
+                <p>Email: natalia.santos@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-11-16</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/4856182?code=844b60f8dd2724db3889f95b17a3c282e0cfa7e593ae459c7da9efebd747b5b5&width=300" alt="Foto de NICKSON ELIAS NASCIMENTO" width="100" height="100">
+            <div class="aluno-info">
+                <h2>NICKSON ELIAS NASCIMENTO</h2>
+                <p>Email: nickson.nascimento@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-08-24</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/4950840?code=88238d8d84f23628d9cc35782ea7d72edfd1f3c15fc790dc1a0e11dce4e671a1&width=300" alt="Foto de PATRICK OLIVEIRA DE SOUSA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>PATRICK OLIVEIRA DE SOUSA</h2>
+                <p>Email: patrick.sousa@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-09-10</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5085587?code=4a983fb08b47790d601e812d36e80fd0e9fbe66a1b99d83113cc564a4ea8ea1&width=300" alt="Foto de RAYANE CRISTINA DE SOUSA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>RAYANE CRISTINA DE SOUSA</h2>
+                <p>Email: rayane.sousa@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-01-21</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/4938704?code=4b4c4467f934cb4b9d949964b29b30d95eb0c4f3c47c9f4f9c28d3d88e3f5631&width=300" alt="Foto de RENATA ALMEIDA ARAUJO" width="100" height="100">
+            <div class="aluno-info">
+                <h2>RENATA ALMEIDA ARAUJO</h2>
+                <p>Email: renata.araujo@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-10-03</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5067088?code=c616dc06b4a7d34c0d25d1f84d6d1c4adbc8fbd7b365458006b7f0e4ac64b9b0&width=300" alt="Foto de ROBERTA RIBEIRO DE SOUSA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>ROBERTA RIBEIRO DE SOUSA</h2>
+                <p>Email: roberta.sousa@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-02-15</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5086945?code=2e4b3ed8c71b23c57164d752f8f5ef6868101b0072f5192e95c981c3e1f9e017&width=300" alt="Foto de ROGÉRIO ALEXANDRE DOS SANTOS" width="100" height="100">
+            <div class="aluno-info">
+                <h2>ROGÉRIO ALEXANDRE DOS SANTOS</h2>
+                <p>Email: rogerio.santos@aluno.ce.gov.br</p>
+                <p>Nascimento: 2008-02-17</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/4851604?code=c3cf30eb023f65c8c99c5b1e3873ebacbda1cda40d0eb1a6a673ca7d6f06272f&width=300" alt="Foto de SAMUEL KALIL DE ALMEIDA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>SAMUEL KALIL DE ALMEIDA</h2>
+                <p>Email: samuel.kalil@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-06-17</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5063080?code=0b849ebaa2d77c83f163e35ec4a95d0e46b9df45c05c2de4f4b2d7c6e9f1a2fa&width=300" alt="Foto de SARA NOGUEIRA COSTA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>SARA NOGUEIRA COSTA</h2>
+                <p>Email: sara.costa@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-07-04</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5079894?code=3e776e7e800c6d372a94e59cf257c3b1b767edebc7744e7c1b3a79cf01658d4d&width=300" alt="Foto de THIAGO SOARES ALMEIDA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>THIAGO SOARES ALMEIDA</h2>
+                <p>Email: thiago.almeida@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-04-05</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5082268?code=05232a21ffec4ed42dbbca20cc488fbb5efb4744e381c9c1d80290ac4d76d39e&width=300" alt="Foto de TAINÁ MARIA SILVA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>TAINÁ MARIA SILVA</h2>
+                <p>Email: taina.silva@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-03-30</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5067887?code=09a0e01cbec2e4c7cbf1d9b57eb767fe2d7357f7e0ad8709e1c09ec5b9b16f15&width=300" alt="Foto de TAYLOR LIMA LIMA" width="100" height="100">
+            <div class="aluno-info">
+                <h2>TAYLOR LIMA LIMA</h2>
+                <p>Email: taylor.lima@aluno.ce.gov.br</p>
+                <p>Nascimento: 2008-05-07</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5060292?code=bf5d2b9a501d0b80f60b508f3e07c24fdcd01449e66501b32cc56d906ee223d&width=300" alt="Foto de TESSA ALMEIDA FERNANDES" width="100" height="100">
+            <div class="aluno-info">
+                <h2>TESSA ALMEIDA FERNANDES</h2>
+                <p>Email: tessa.fernandes@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-01-23</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5084451?code=b27cf9bba691e12c3b6f3a234473aa174ce2c9d4475199d37e2b674e03a476e&width=300" alt="Foto de TIANE KESSIA SANTOS" width="100" height="100">
+            <div class="aluno-info">
+                <h2>TIANE KESSIA SANTOS</h2>
+                <p>Email: tiane.santos@aluno.ce.gov.br</p>
+                <p>Nascimento: 2006-12-27</p>
+            </div>
+        </div>
+        <div class="aluno">
+            <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5087921?code=19b380fb028447d03b44f5b4296708d2648f9cf2451866706a81095a8620879&width=300" alt="Foto de VICTOR ALMEIDA FURTADO" width="100" height="100">
+            <div class="aluno-info">
+                <h2>VICTOR ALMEIDA FURTADO</h2>
+                <p>Email: victor.furtado@aluno.ce.gov.br</p>
+                <p>Nascimento: 2007-09-20</p>
+            </div>
         </div>
     </div>
-
-    <div class="aluno">
-        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062489?code=88dea76167549990f228e3870d1842f7532ab0a05f95d1dbd3fea9a2e1ee86f2&width=300" alt="Foto de ANA JAISA ALVES DO NASCIMENTO" width="100" height="100">
-        <div class="aluno-info">
-            <p><strong>Nome:</strong> ANA JAISA ALVES DO NASCIMENTO</p>
-            <p><strong>Email:</strong> ana.nascimento1042@aluno.ce.gov.br</p>
-            <p><strong>Data de Nascimento:</strong> 2007-07-15</p>
-        </div>
-    </div>
-
-    <div class="aluno">
-        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062543?code=2f90c5442ff9d7d76f6a10c7cb17cf0de57c02e5c937c7b38ac16b406f260feb&width=300" alt="Foto de FRANCISCO DAVI SOUSA DOS SANTOS" width="100" height="100">
-        <div class="aluno-info">
-            <p><strong>Nome:</strong> FRANCISCO DAVI SOUSA DOS SANTOS</p>
-            <p><strong>Email:</strong> francisco.santos626@aluno.ce.gov.br</p>
-            <p><strong>Data de Nascimento:</strong> 2007-10-27</p>
-        </div>
-    </div>
-
-    <div class="aluno">
-        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062664?code=8b9cd9b0c275a798420e64a35e62a34be7b9d06f7b87fe043528320ed373fb29&width=300" alt="Foto de IALLY BEATRIZ ALVES SILVA" width="100" height="100">
-        <div class="aluno-info">
-            <p><strong>Nome:</strong> IALLY BEATRIZ ALVES SILVA</p>
-            <p><strong>Email:</strong> ially.silva1210@aluno.ce.gov.br</p>
-            <p><strong>Data de Nascimento:</strong> 2007-06-04</p>
-        </div>
-    </div>
-
-    <div class="aluno">
-        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062791?code=03c32a7e66f03b1c151d1d6660c9ac4d3b4da7c7e0c73e8e9f5bff1d6e7b95bc&width=300" alt="Foto de ISMAEL MAIA SARAIVA" width="100" height="100">
-        <div class="aluno-info">
-            <p><strong>Nome:</strong> ISMAEL MAIA SARAIVA</p>
-            <p><strong>Email:</strong> ismael.saraiva688@aluno.ce.gov.br</p>
-            <p><strong>Data de Nascimento:</strong> 2007-10-01</p>
-        </div>
-    </div>
-
-    <div class="aluno">
-        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5062844?code=68860c1eeb58f7f4b6ec5b25e9c7c28c5b972d7fa22f2fd586073fa2c0663158&width=300" alt="Foto de JEOVANA NUNES PEREIRA" width="100" height="100">
-        <div class="aluno-info">
-            <p><strong>Nome:</strong> JEOVANA NUNES PEREIRA</p>
-            <p><strong>Email:</strong> jeovana.pereira702@aluno.ce.gov.br</p>
-            <p><strong>Data de Nascimento:</strong> 2007-09-11</p>
-        </div>
-    </div>
-
-    <div class="aluno">
-        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5063094?code=7c272b9684fa13d4d7b11e042dd7fe453898f3287ab2490b9285b2aeb646cafe&width=300" alt="Foto de RITIELY DA SILVA MARTINS" width="100" height="100">
-        <div class="aluno-info">
-            <p><strong>Nome:</strong> RITIELY DA SILVA MARTINS</p>
-            <p><strong>Email:</strong> ritiely.martins202@aluno.ce.gov.br</p>
-            <p><strong>Data de Nascimento:</strong> 2006-06-22</p>
-        </div>
-    </div>
-
-    <div class="aluno">
-        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5063172?code=058cc80f19c99fc48e544e25707b8d47d7889d81b6477e49c7fe50a94c2ff00c&width=300" alt="Foto de SAULO DA SILVA MENEZES" width="100" height="100">
-        <div class="aluno-info">
-            <p><strong>Nome:</strong> SAULO DA SILVA MENEZES</p>
-            <p><strong>Email:</strong> saulo.menezes453@aluno.ce.gov.br</p>
-            <p><strong>Data de Nascimento:</strong> 2007-03-28</p>
-        </div>
-    </div>
-
-    <div class="aluno">
-        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5063375?code=4c78de83b75d5ab94696184b50205e59cd8f18a9e676ace6207740e51035a6a7&width=300" alt="Foto de SILMARA LIMA DE OLIVEIRA" width="100" height="100">
-        <div class="aluno-info">
-            <p><strong>Nome:</strong> SILMARA LIMA DE OLIVEIRA</p>
-            <p><strong>Email:</strong> silmara.oliveira858@aluno.ce.gov.br</p>
-            <p><strong>Data de Nascimento:</strong> 2006-10-09</p>
-        </div>
-    </div>
-
-    <div class="aluno">
-        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5063380?code=6a6a6f9899d60f591d36940c0ea3545d87c4d3f11d1b09a7870fefdd3d0f16c2&width=300" alt="Foto de TAYLOR MATEUS CARVALHO" width="100" height="100">
-        <div class="aluno-info">
-            <p><strong>Nome:</strong> TAYLOR MATEUS CARVALHO</p>
-            <p><strong>Email:</strong> taylor.carvalho964@aluno.ce.gov.br</p>
-            <p><strong>Data de Nascimento:</strong> 2007-07-03</p>
-        </div>
-    </div>
-
-    <div class="aluno">
-        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5063395?code=b4f631e6d5d01e79b00d117405d079b6d41a11d9469ec1c107f5e8314690bcb1&width=300" alt="Foto de THIAGO JEREMIAS PINHEIRO" width="100" height="100">
-        <div class="aluno-info">
-            <p><strong>Nome:</strong> THIAGO JEREMIAS PINHEIRO</p>
-            <p><strong>Email:</strong> thiago.pinheiro624@aluno.ce.gov.br</p>
-            <p><strong>Data de Nascimento:</strong> 2007-04-22</p>
-        </div>
-    </div>
-
-    <div class="aluno">
-        <img src="https://apiregistrofotografico.seduc.ce.gov.br/api/registrofotografico/aluno/5063424?code=bd8967b5bba99b775d17b14b9ccdf6a410bbba0e154fc949b66f9a4e6c40c391&width=300" alt="Foto de VITOR MATEUS SILVA TEIXEIRA" width="100" height="100">
-        <div class="aluno-info">
-            <p><strong>Nome:</strong> VITOR MATEUS SILVA TEIXEIRA</p>
-            <p><strong>Email:</strong> vitor.teixeira302@aluno.ce.gov.br</p>
-            <p><strong>Data de Nascimento:</strong> 2007-08-28</p>
-        </div>
-    </div>
-
 </body>
 </html>
